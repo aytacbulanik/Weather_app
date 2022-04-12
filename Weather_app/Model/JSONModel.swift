@@ -7,7 +7,12 @@
 
 import Foundation
 
-struct JSONModel {
-    
+struct JSONModel : Codable{
+    let main : Main
     
 }
+
+struct Main : Codable {
+    let temp : Double
+}
+

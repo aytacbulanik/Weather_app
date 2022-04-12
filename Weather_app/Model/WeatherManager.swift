@@ -25,9 +25,24 @@ struct WeatherManager {
                 }
                 
                 if let JSONdata = data {
-                    if let data = JSONdata.parse
+                    
                 }
             }
+            task.resume()
+        }
+        
+    }
+    
+    func parseJSON(weatherData : Data) -> WeatherModel? {
+        let decoder = JSONDecoder()
+        do {
+            let decodedData = try decoder.decode(JSONModel.self, from: weatherData)
+            let temp = decodedData.main.temp
+            let weather = WeatherModel(conditionId: nil, city: nil, tempeture: temp)
+            return weather
+        } catch {
+            print(error.localizedDescription)
+            return nil
         }
     }
     
