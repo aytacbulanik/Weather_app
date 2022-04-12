@@ -10,9 +10,9 @@ import Foundation
 struct WeatherManager {
     let apiUrl = "https://api.openweathermap.org/data/2.5/weather?appid=39d3bb501d19a7b5f5d9449a0d69b76c&units=metric"
     
-    func weatherRequestUrl(city :String) -> String{
+    func weatherRequestUrl(city :String){
         let urlString = "\(apiUrl)&q=\(city)"
-        return urlString
+       resolveJSON(urlString: urlString)
     }
     
     func resolveJSON(urlString : String) {
@@ -20,12 +20,12 @@ struct WeatherManager {
             let session = URLSession(configuration: .default)
             let task = session.dataTask(with: url) { data, response, error in
                 if error != nil {
-                    print(error?.localizedDescription)
+                    print(error)
                     return
                 }
-                
                 if let JSONdata = data {
-                    
+                    let weather = self.parseJSON(weatherData: JSONdata)
+                    print(weather?.tempeture ?? 0.0)
                 }
             }
             task.resume()
