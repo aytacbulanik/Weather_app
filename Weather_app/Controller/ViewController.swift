@@ -8,10 +8,12 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    let weatherManagerObject = WeatherManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        print(weatherManagerObject.weatherRequestUrl(city: "London"))
     }
 
 
