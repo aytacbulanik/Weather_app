@@ -7,9 +7,13 @@
 
 import Foundation
 
+protocol WeatherManagerDelegate {
+    func weatherdidUpdate(weather : WeatherModel)
+    func weatherFails(error: Error)
+}
 struct WeatherManager {
     let apiUrl = "https://api.openweathermap.org/data/2.5/weather?appid=39d3bb501d19a7b5f5d9449a0d69b76c&units=metric"
-    
+    var weatherManagerDelegateObject : WeatherManagerDelegate?
     func weatherRequestUrl(city :String){
         let urlString = "\(apiUrl)&q=\(city)"
        resolveJSON(urlString: urlString)
@@ -20,21 +24,17 @@ struct WeatherManager {
             let session = URLSession(configuration: .default)
             let task = session.dataTask(with: url) { data, response, error in
                 if error != nil {
-                    print(error)
+                    weatherManagerDelegateObject?.weatherFails(error: error!)
                     return
                 }
                 if let JSONdata = data {
                     if let weather = self.parseJSON(weatherData: JSONdata) {
-                        print(weather.tempeture)
-                        print(weather.city)
-                        print(weather.conditionId)
+                        self.weatherManagerDelegateObject?.weatherdidUpdate(weather: weather)
                     }
-                    
                 }
             }
             task.resume()
         }
-        
     }
     
     func parseJSON(weatherData : Data) -> WeatherModel? {
