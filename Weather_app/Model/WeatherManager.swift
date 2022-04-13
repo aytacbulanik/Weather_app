@@ -26,6 +26,8 @@ struct WeatherManager {
                 if let JSONdata = data {
                     let weather = self.parseJSON(weatherData: JSONdata)
                     print(weather?.tempeture ?? 0.0)
+                    print(weather?.city ?? "Boş")
+                    print(weather?.conditionId ?? 0)
                 }
             }
             task.resume()
@@ -37,8 +39,10 @@ struct WeatherManager {
         let decoder = JSONDecoder()
         do {
             let decodedData = try decoder.decode(JSONModel.self, from: weatherData)
+            let name = decodedData.name
             let temp = decodedData.main.temp
-            let weather = WeatherModel(conditionId: nil, city: nil, tempeture: temp)
+            let conditionId = decodedData.weather[0].id
+            let weather = WeatherModel(conditionId: conditionId, city: name, tempeture: temp)
             return weather
         } catch {
             print(error.localizedDescription)

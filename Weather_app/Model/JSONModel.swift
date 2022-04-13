@@ -9,10 +9,15 @@ import Foundation
 
 struct JSONModel : Codable{
     let main : Main
-    
+    let name :String
+    let weather : [Weather]
 }
 
 struct Main : Codable {
     let temp : Double
+}
+
+struct Weather : Codable {
+    let id : Int
 }
 
