@@ -45,6 +45,7 @@ struct WeatherManager {
             let temp = decodedData.main.temp
             let conditionId = decodedData.weather[0].id
             let weather = WeatherModel(conditionId: conditionId, city: name, tempeture: temp)
+            print(decodedData.coord.lon)
             return weather
         } catch {
             print(error.localizedDescription)

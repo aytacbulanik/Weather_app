@@ -6,11 +6,18 @@
 //
 
 import Foundation
+import CoreLocation
 
 struct JSONModel : Codable{
     let main : Main
-    let name :String
+    let name : String
+    let coord : Coord
     let weather : [Weather]
+}
+
+struct Coord : Codable {
+    let lon : CLLocationDegrees
+    let lat : CLLocationDegrees
 }
 
 struct Main : Codable {
