@@ -24,10 +24,12 @@ struct WeatherManager {
                     return
                 }
                 if let JSONdata = data {
-                    let weather = self.parseJSON(weatherData: JSONdata)
-                    print(weather?.tempeture ?? 0.0)
-                    print(weather?.city ?? "Boş")
-                    print(weather?.conditionId ?? 0)
+                    if let weather = self.parseJSON(weatherData: JSONdata) {
+                        print(weather.tempeture)
+                        print(weather.city)
+                        print(weather.conditionId)
+                    }
+                    
                 }
             }
             task.resume()
