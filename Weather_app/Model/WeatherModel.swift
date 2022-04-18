@@ -6,14 +6,21 @@
 //
 
 import Foundation
+import CoreLocation
 
 struct WeatherModel {
     let conditionId : Int
     let city : String
     let tempeture : Double
+    let longidude : CLLocationDegrees
+    let latidude : CLLocationDegrees
     
     var tempetureString : String {
         return String(format: "%.1f", tempeture)
+    }
+    
+    var getCoordinate : (Double,Double) {
+        return (longidude ,latidude)
     }
     
 }

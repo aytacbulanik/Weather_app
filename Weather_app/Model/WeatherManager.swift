@@ -43,9 +43,10 @@ struct WeatherManager {
             let decodedData = try decoder.decode(JSONModel.self, from: weatherData)
             let name = decodedData.name
             let temp = decodedData.main.temp
+            let long = decodedData.coord.lon
+            let lat = decodedData.coord.lat
             let conditionId = decodedData.weather[0].id
-            let weather = WeatherModel(conditionId: conditionId, city: name, tempeture: temp)
-            print(decodedData.coord.lon)
+            let weather = WeatherModel(conditionId: conditionId, city: name, tempeture: temp, longidude: long, latidude: lat)
             return weather
         } catch {
             print(error.localizedDescription)
