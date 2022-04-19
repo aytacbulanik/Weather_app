@@ -10,7 +10,11 @@ import UIKit
 class ViewController: UIViewController {
     
     var weatherManagerObject = WeatherManager()
-    var weatherObject : WeatherModel?
+    var weatherObject : WeatherModel!
+    @IBOutlet weak var cityNameLabel: UILabel!
+    @IBOutlet weak var cityTemperatureLabel: UILabel!
+    
+    @IBOutlet weak var cityNameField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
        weatherManagerObject.weatherManagerDelegateObject = self
@@ -22,8 +26,8 @@ class ViewController: UIViewController {
 
 extension ViewController : WeatherManagerDelegate {
     func weatherdidUpdate(weather: WeatherModel) {
-        weatherManagerObject.weatherRequestUrlCoordinates(weather: weather)
-        
+        print(weather.latidude)
+        print(weather.longidude)
       
     }
     

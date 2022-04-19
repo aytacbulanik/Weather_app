@@ -23,7 +23,7 @@ struct WeatherManager {
     func weatherRequestUrlCoordinates(weather : WeatherModel) {
        let urlString = "\(oneCallApiUrl)&lon=\(weather.longidude)&lat=\(weather.latidude)"
        resolveJSON(urlString: urlString)
-        print(urlString)
+       
     }
     
     func resolveJSON(urlString : String) {
@@ -61,6 +61,5 @@ struct WeatherManager {
             return nil
         }
     }
-    
     
 }

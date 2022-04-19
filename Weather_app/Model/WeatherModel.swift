@@ -19,8 +19,5 @@ struct WeatherModel {
         return String(format: "%.1f", tempeture)
     }
     
-    var getCoordinate : (Double,Double) {
-        return (longidude ,latidude)
-    }
     
 }

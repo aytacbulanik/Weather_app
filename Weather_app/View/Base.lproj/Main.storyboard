@@ -116,6 +116,11 @@
                             <constraint firstItem="lLc-1P-A1f" firstAttribute="top" secondItem="kh1-VF-YTe" secondAttribute="bottom" constant="50" id="xo5-5G-zSK"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="cityNameField" destination="hLb-ZN-XbE" id="8ax-WX-Hvv"/>
+                        <outlet property="cityNameLabel" destination="lLc-1P-A1f" id="GVR-3k-hJr"/>
+                        <outlet property="cityTemperatureLabel" destination="bTe-u0-ZUu" id="6CC-pT-Sf6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
