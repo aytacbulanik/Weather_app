@@ -9,13 +9,27 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    let weatherManagerObject = WeatherManager()
-    
+    var weatherManagerObject = WeatherManager()
+    var weatherObject : WeatherModel?
     override func viewDidLoad() {
         super.viewDidLoad()
-        weatherManagerObject.weatherRequestUrl(city: "London")
+       weatherManagerObject.weatherManagerDelegateObject = self
+       weatherManagerObject.weatherRequestUrl(city: "London")
     }
 
 
+}
+
+extension ViewController : WeatherManagerDelegate {
+    func weatherdidUpdate(weather: WeatherModel) {
+        print(weather.latidude)
+      
+    }
+    
+    func weatherFails(error: Error) {
+        print(error.localizedDescription)
+    }
+    
+    
 }
 

@@ -12,11 +12,18 @@ protocol WeatherManagerDelegate {
     func weatherFails(error: Error)
 }
 struct WeatherManager {
+
     let apiUrl = "https://api.openweathermap.org/data/2.5/weather?appid=39d3bb501d19a7b5f5d9449a0d69b76c&units=metric"
     var weatherManagerDelegateObject : WeatherManagerDelegate?
     func weatherRequestUrl(city :String){
         let urlString = "\(apiUrl)&q=\(city)"
-       resolveJSON(urlString: urlString)
+        resolveJSON(urlString: urlString)
+    }
+    func weatherRequestUrlCoordinates() {
+       // let urlString = "\(apiUrl)&lon=\(weather.longidude)&lat=\(weather.latidude)"
+       // resolveJSON(urlString: urlString)
+      
+    
     }
     
     func resolveJSON(urlString : String) {
@@ -36,6 +43,7 @@ struct WeatherManager {
             task.resume()
         }
     }
+    
     
     func parseJSON(weatherData : Data) -> WeatherModel? {
         let decoder = JSONDecoder()
