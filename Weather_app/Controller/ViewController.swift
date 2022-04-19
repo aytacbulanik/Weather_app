@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
        weatherManagerObject.weatherManagerDelegateObject = self
-       weatherManagerObject.weatherRequestUrl(city: "London")
+        weatherManagerObject.weatherRequestUrl(city: "Hatay")
     }
 
 
@@ -22,7 +22,8 @@ class ViewController: UIViewController {
 
 extension ViewController : WeatherManagerDelegate {
     func weatherdidUpdate(weather: WeatherModel) {
-        print(weather.latidude)
+        weatherManagerObject.weatherRequestUrlCoordinates(weather: weather)
+        
       
     }
     

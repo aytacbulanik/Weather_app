@@ -14,16 +14,16 @@ protocol WeatherManagerDelegate {
 struct WeatherManager {
 
     let apiUrl = "https://api.openweathermap.org/data/2.5/weather?appid=39d3bb501d19a7b5f5d9449a0d69b76c&units=metric"
+    let oneCallApiUrl = " https://api.openweathermap.org/data/2.5/onecall?exclude=daily&appid=39d3bb501d19a7b5f5d9449a0d69b76c&units=metric"
     var weatherManagerDelegateObject : WeatherManagerDelegate?
     func weatherRequestUrl(city :String){
         let urlString = "\(apiUrl)&q=\(city)"
         resolveJSON(urlString: urlString)
     }
-    func weatherRequestUrlCoordinates() {
-       // let urlString = "\(apiUrl)&lon=\(weather.longidude)&lat=\(weather.latidude)"
-       // resolveJSON(urlString: urlString)
-      
-    
+    func weatherRequestUrlCoordinates(weather : WeatherModel) {
+       let urlString = "\(oneCallApiUrl)&lon=\(weather.longidude)&lat=\(weather.latidude)"
+       resolveJSON(urlString: urlString)
+        print(urlString)
     }
     
     func resolveJSON(urlString : String) {
