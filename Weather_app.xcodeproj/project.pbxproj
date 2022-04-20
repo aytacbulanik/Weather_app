@@ -110,9 +110,9 @@
 		B4DF1D25280EF01100B4E5EA /* DetailModel */ = {
 			isa = PBXGroup;
 			children = (
-				B4DF1D26280EF03A00B4E5EA /* DetailWeatherModel.swift */,
-				B4DF1D28280EF25F00B4E5EA /* DetailJSONModel.swift */,
 				B4EAB903280FFAA80044A2BF /* DetailWeatherManagement.swift */,
+				B4DF1D28280EF25F00B4E5EA /* DetailJSONModel.swift */,
+				B4DF1D26280EF03A00B4E5EA /* DetailWeatherModel.swift */,
 			);
 			path = DetailModel;
 			sourceTree = "<group>";
