@@ -18,6 +18,7 @@
 		B4C0AE522805AC2C003DE14F /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C0AE512805AC2C003DE14F /* WeatherModel.swift */; };
 		B4DF1D27280EF03A00B4E5EA /* DetailWeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DF1D26280EF03A00B4E5EA /* DetailWeatherModel.swift */; };
 		B4DF1D29280EF25F00B4E5EA /* DetailJSONModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DF1D28280EF25F00B4E5EA /* DetailJSONModel.swift */; };
+		B4EAB904280FFAA80044A2BF /* DetailWeatherManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EAB903280FFAA80044A2BF /* DetailWeatherManagement.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		B4C0AE512805AC2C003DE14F /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
 		B4DF1D26280EF03A00B4E5EA /* DetailWeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailWeatherModel.swift; sourceTree = "<group>"; };
 		B4DF1D28280EF25F00B4E5EA /* DetailJSONModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailJSONModel.swift; sourceTree = "<group>"; };
+		B4EAB903280FFAA80044A2BF /* DetailWeatherManagement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailWeatherManagement.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 			children = (
 				B4DF1D26280EF03A00B4E5EA /* DetailWeatherModel.swift */,
 				B4DF1D28280EF25F00B4E5EA /* DetailJSONModel.swift */,
+				B4EAB903280FFAA80044A2BF /* DetailWeatherManagement.swift */,
 			);
 			path = DetailModel;
 			sourceTree = "<group>";
@@ -192,6 +195,7 @@
 				B4C0AE4E2805A1F6003DE14F /* WeatherManager.swift in Sources */,
 				B4C0AE522805AC2C003DE14F /* WeatherModel.swift in Sources */,
 				B4DF1D29280EF25F00B4E5EA /* DetailJSONModel.swift in Sources */,
+				B4EAB904280FFAA80044A2BF /* DetailWeatherManagement.swift in Sources */,
 				B4C0AE352805979C003DE14F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

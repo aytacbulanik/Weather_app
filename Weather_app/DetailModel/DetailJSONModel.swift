@@ -16,6 +16,7 @@ struct DetailJSONModel :Codable {
 }
 
 struct Current : Codable {
+    let temp : Double
     
 }
 
