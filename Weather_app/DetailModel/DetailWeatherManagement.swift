@@ -16,4 +16,19 @@ struct DetailWeatherManagement {
         print(urlString)
     }
     
+    func fetchJSON(urlString : String) {
+        if let url = URL(string: urlString) {
+            let session = URLSession(configuration: .default)
+            let task = session.dataTask(with: url) { data, response, error in
+                if error != nil {
+                    print(error!.localizedDescription)
+                    return
+                }
+                if let jsonData = data {
+                    
+                }
+            }
+        }
+    }
+    
 }
