@@ -8,7 +8,13 @@
 import Foundation
 import CoreLocation
 
+protocol DetailWeatherManagementDelegate {
+    func detailWeatherUpdate(detailWeather : DetailWeatherModel)
+    func detailDidFail(error : Error)
+}
+
 struct DetailWeatherManagement {
+    var detailDeegate : DetailWeatherManagementDelegate?
     let apiDetailUrl = "https://api.openweathermap.org/data/2.5/onecall?exclude=daily&appid=39d3bb501d19a7b5f5d9449a0d69b76c&units=metric"
     
     func sendDetailWeather(longitude : CLLocationDegrees , latitude : CLLocationDegrees) {
@@ -21,12 +27,12 @@ struct DetailWeatherManagement {
             let session = URLSession(configuration: .default)
             let task = session.dataTask(with: url) { data, response, error in
                 if error != nil {
-                    print(error!.localizedDescription)
+                    detailDeegate?.detailDidFail(error: error!)
                     return
                 }
                 if let jsonData = data {
-                    if let weather = self.decodeJson(jsondata: jsonData) {
-                        print(weather)
+                    if let detailWeather = self.decodeJson(jsondata: jsonData) {
+                        detailDeegate?.detailWeatherUpdate(detailWeather: detailWeather)
                     }
                     
                 }
