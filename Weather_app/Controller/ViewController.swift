@@ -20,7 +20,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
        weatherManagerObject.weatherManagerDelegateObject = self
        weatherManagerObject.weatherRequestUrl(city: "Hatay")
-        detailWeatherManagerObject.sendDetailWeather(longitude: 36.25, latitude: 36.5)
+       detailWeatherManagerObject.sendDetailWeather(longitude: 36.25, latitude: 36.5)
     }
 
 

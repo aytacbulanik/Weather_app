@@ -13,7 +13,7 @@ struct DetailWeatherManagement {
     
     func sendDetailWeather(longitude : CLLocationDegrees , latitude : CLLocationDegrees) {
         let urlString = "\(apiDetailUrl)&lon=\(longitude)&lat=\(latitude)"
-        print(urlString)
+        fetchJSON(urlString: urlString)
     }
     
     func fetchJSON(urlString : String) {
@@ -25,9 +25,23 @@ struct DetailWeatherManagement {
                     return
                 }
                 if let jsonData = data {
-                    
+                    let temp = self.decodeJson(jsondata: jsonData)
+                        print(temp)
                 }
             }
+            task.resume()
+        }
+    }
+    
+    func decodeJson(jsondata : Data) -> Double {
+        let decoder = JSONDecoder()
+        do {
+            let decodeData = try decoder.decode(DetailJSONModel.self, from: jsondata)
+            let temp = decodeData.current.temp
+            return temp
+        }catch {
+            print(error.localizedDescription)
+            return 0.0
         }
     }
     
