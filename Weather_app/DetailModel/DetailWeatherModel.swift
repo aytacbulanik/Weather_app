@@ -14,3 +14,9 @@ struct DetailWeatherModel {
     let humidity : Double
     let uvi : Double
 }
+
+struct DetailLittleWeatherModel {
+    let id : Int
+    let description : String
+    let main : String
+}
