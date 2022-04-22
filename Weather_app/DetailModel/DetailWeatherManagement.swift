@@ -25,8 +25,10 @@ struct DetailWeatherManagement {
                     return
                 }
                 if let jsonData = data {
-                    let weather = self.decodeJson(jsondata: jsonData)
-                    print(weather)
+                    if let weather = self.decodeJson(jsondata: jsonData) {
+                        print(weather)
+                    }
+                    
                 }
             }
             task.resume()

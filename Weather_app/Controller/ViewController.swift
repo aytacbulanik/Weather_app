@@ -28,8 +28,6 @@ class ViewController: UIViewController {
 
 extension ViewController : WeatherManagerDelegate {
     func weatherdidUpdate(weather: WeatherModel) {
-        print(weather.latidude)
-        print(weather.longidude)
       
     }
     
