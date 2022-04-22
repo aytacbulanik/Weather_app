@@ -34,7 +34,6 @@ struct DetailWeatherManagement {
                     if let detailWeather = self.decodeJson(jsondata: jsonData) {
                         detailDeegate?.detailWeatherUpdate(detailWeather: detailWeather)
                     }
-                    
                 }
             }
             task.resume()

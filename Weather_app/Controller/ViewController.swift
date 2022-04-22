@@ -19,6 +19,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
        weatherManagerObject.weatherManagerDelegateObject = self
+        detailWeatherManagerObject.detailDeegate = self
        weatherManagerObject.weatherRequestUrl(city: "Hatay")
        detailWeatherManagerObject.sendDetailWeather(longitude: 36.25, latitude: 36.5)
     }
@@ -30,8 +31,17 @@ extension ViewController : WeatherManagerDelegate {
     func weatherdidUpdate(weather: WeatherModel) {
       
     }
-    
     func weatherFails(error: Error) {
+        print(error.localizedDescription)
+    }
+}
+
+extension ViewController : DetailWeatherManagementDelegate {
+    func detailWeatherUpdate(detailWeather: DetailWeatherModel) {
+        print("\(detailWeather) detaylerı geldi")
+    }
+    
+    func detailDidFail(error: Error) {
         print(error.localizedDescription)
     }
     
