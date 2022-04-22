@@ -21,6 +21,7 @@ struct Current : Codable {
     let pressure : Int
     let humidity : Double
     let uvi : Double
+    let dt : Double
 }
 
 struct Minutely : Codable {

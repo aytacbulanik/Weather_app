@@ -39,6 +39,7 @@ extension ViewController : WeatherManagerDelegate {
 extension ViewController : DetailWeatherManagementDelegate {
     func detailWeatherUpdate(detailWeather: DetailWeatherModel) {
         print("\(detailWeather) detaylerı geldi")
+        print(detailWeather.stringDate)
     }
     
     func detailDidFail(error: Error) {
