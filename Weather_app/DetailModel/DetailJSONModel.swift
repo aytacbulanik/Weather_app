@@ -17,7 +17,10 @@ struct DetailJSONModel :Codable {
 
 struct Current : Codable {
     let temp : Double
-    
+    let feels_like : Double
+    let pressure : Int
+    let humidity : Double
+    let uvi : Double
 }
 
 struct Minutely : Codable {

@@ -8,6 +8,9 @@
 import Foundation
 
 struct DetailWeatherModel {
-    
-   
+    let temp : Double
+    let feels_like : Double
+    let pressure : Int
+    let humidity : Double
+    let uvi : Double
 }

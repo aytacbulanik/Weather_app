@@ -25,23 +25,28 @@ struct DetailWeatherManagement {
                     return
                 }
                 if let jsonData = data {
-                    let temp = self.decodeJson(jsondata: jsonData)
-                        print(temp)
+                    let weather = self.decodeJson(jsondata: jsonData)
+                    print(weather)
                 }
             }
             task.resume()
         }
     }
     
-    func decodeJson(jsondata : Data) -> Double {
+    func decodeJson(jsondata : Data) -> DetailWeatherModel? {
         let decoder = JSONDecoder()
         do {
             let decodeData = try decoder.decode(DetailJSONModel.self, from: jsondata)
             let temp = decodeData.current.temp
-            return temp
+            let feels_like = decodeData.current.feels_like
+            let pressure = decodeData.current.pressure
+            let humidity = decodeData.current.humidity
+            let uvi = decodeData.current.uvi
+            let detailWeather = DetailWeatherModel(temp: temp, feels_like: feels_like, pressure: pressure, humidity: humidity, uvi: uvi)
+            return detailWeather
         }catch {
             print(error.localizedDescription)
-            return 0.0
+            return nil
         }
     }
     
