@@ -20,7 +20,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
        weatherManagerObject.weatherManagerDelegateObject = self
         detailWeatherManagerObject.detailDeegate = self
-       weatherManagerObject.weatherRequestUrl(city: "Hatay")
+      // weatherManagerObject.weatherRequestUrl(city: "Hatay")
        detailWeatherManagerObject.sendDetailWeather(longitude: 36.25, latitude: 36.5)
     }
 
@@ -40,11 +40,12 @@ extension ViewController : DetailWeatherManagementDelegate {
     func detailWeatherUpdate(detailWeather: DetailWeatherModel) {
         let date = Date(timeIntervalSince1970: detailWeather.sunrise)
         let dateFormatter = DateFormatter()
-        dateFormatter.timeStyle = DateFormatter.Style.medium //Set time style
-        dateFormatter.dateStyle = DateFormatter.Style.medium //Set date style
+        dateFormatter.timeStyle = DateFormatter.Style.short //Set time style
+        dateFormatter.dateStyle = DateFormatter.Style.long //Set date style
         dateFormatter.timeZone = .current
         let localDate = dateFormatter.string(from: date)
          print(localDate)
+        print(detailWeather.currentWeatherDetail.description)
     }
     
     func detailDidFail(error: Error) {

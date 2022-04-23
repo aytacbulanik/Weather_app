@@ -13,6 +13,7 @@ struct DetailJSONModel :Codable {
     let current : Current
     let minutely : [Minutely]
     let hourly : [Hourly]
+    
 }
 
 struct Current : Codable {
@@ -24,6 +25,13 @@ struct Current : Codable {
     let dt : Double
     let sunrise : Double
     let sunset : Double
+    let weather : [WeatherDetail]
+}
+
+struct WeatherDetail : Codable {
+    let id : Int
+    let description : String
+    let main : String
 }
 
 struct Minutely : Codable {

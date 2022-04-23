@@ -16,6 +16,7 @@ struct DetailWeatherModel {
     let dt : Double
     let sunrise : Double
     let sunset : Double
+    let currentWeatherDetail : DetailLittleWeatherModel
     
     var stringDate : String {
         let date = Date(timeIntervalSince1970: dt)
