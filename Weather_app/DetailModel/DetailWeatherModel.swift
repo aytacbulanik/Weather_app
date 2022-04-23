@@ -14,6 +14,8 @@ struct DetailWeatherModel {
     let humidity : Double
     let uvi : Double
     let dt : Double
+    let sunrise : Double
+    let sunset : Double
     
     var stringDate : String {
         let date = Date(timeIntervalSince1970: dt)

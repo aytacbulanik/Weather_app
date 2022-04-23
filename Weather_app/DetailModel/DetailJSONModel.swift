@@ -22,6 +22,8 @@ struct Current : Codable {
     let humidity : Double
     let uvi : Double
     let dt : Double
+    let sunrise : Double
+    let sunset : Double
 }
 
 struct Minutely : Codable {

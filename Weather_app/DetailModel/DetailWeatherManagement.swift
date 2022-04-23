@@ -51,7 +51,10 @@ struct DetailWeatherManagement {
             let humidity = decodeData.current.humidity
             let uvi = decodeData.current.uvi
             let dt = decodeData.current.dt
-            let detailWeather = DetailWeatherModel(temp: temp, feels_like: feels_like, pressure: pressure, humidity: humidity, uvi: uvi,dt: dt)
+            let sunrise = decodeData.current.sunrise
+            let sunset = decodeData.current.sunset
+            let detailWeather = DetailWeatherModel(temp: temp, feels_like: feels_like, pressure: pressure, humidity: humidity, uvi: uvi,dt: dt,sunrise: sunrise,sunset: sunset)
+            print(detailWeather)
             return detailWeather
         }catch {
             print(error.localizedDescription)
