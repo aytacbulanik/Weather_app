@@ -52,10 +52,12 @@ struct DetailWeatherManagement {
             let dt = decodeData.current.dt
             let sunrise = decodeData.current.sunrise
             let sunset = decodeData.current.sunset
+            let wind_speed = decodeData.current.wind_speed
+            let wind_deg = decodeData.current.wind_deg
             let weatherId = decodeData.current.weather[0].id
             let description = decodeData.current.weather[0].description
             let main = decodeData.current.weather[0].main
-            let detailWeather = DetailWeatherModel(temp: temp, feels_like: feels_like, pressure: pressure, humidity: humidity, uvi: uvi,dt: dt,sunrise: sunrise,sunset: sunset,currentWeatherDetail:.init(id: weatherId, description: description, main: main))
+            let detailWeather = DetailWeatherModel(temp: temp, feels_like: feels_like, pressure: pressure, humidity: humidity, uvi: uvi,dt: dt,sunrise: sunrise,sunset: sunset,wind_speed: wind_speed,wind_deg: wind_deg,currentWeatherDetail:.init(id: weatherId, description: description, main: main))
             return detailWeather
         }catch {
             print(error.localizedDescription)

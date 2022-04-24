@@ -38,14 +38,8 @@ extension ViewController : WeatherManagerDelegate {
 
 extension ViewController : DetailWeatherManagementDelegate {
     func detailWeatherUpdate(detailWeather: DetailWeatherModel) {
-        let date = Date(timeIntervalSince1970: detailWeather.sunrise)
-        let dateFormatter = DateFormatter()
-        dateFormatter.timeStyle = DateFormatter.Style.short //Set time style
-        dateFormatter.dateStyle = DateFormatter.Style.long //Set date style
-        dateFormatter.timeZone = .current
-        let localDate = dateFormatter.string(from: date)
-         print(localDate)
-        print(detailWeather.currentWeatherDetail.description)
+        print(detailWeather.stringDate)
+        print(detailWeather.wind_deg)
     }
     
     func detailDidFail(error: Error) {

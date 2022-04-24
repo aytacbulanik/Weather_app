@@ -26,6 +26,8 @@ struct Current : Codable {
     let sunrise : Double
     let sunset : Double
     let weather : [WeatherDetail]
+    let wind_speed : Double
+    let wind_deg : Double
 }
 
 struct WeatherDetail : Codable {
