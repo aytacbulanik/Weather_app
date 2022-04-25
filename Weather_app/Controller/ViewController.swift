@@ -11,6 +11,7 @@ class ViewController: UIViewController {
     
     var weatherManagerObject = WeatherManager()
     var detailWeatherManagerObject = DetailWeatherManagement()
+    var hourlyDataManagementObject = HourlyDataManagement()
     var weatherObject : WeatherModel!
     @IBOutlet weak var cityNameLabel: UILabel!
     @IBOutlet weak var cityTemperatureLabel: UILabel!
@@ -22,6 +23,7 @@ class ViewController: UIViewController {
         detailWeatherManagerObject.detailDeegate = self
       // weatherManagerObject.weatherRequestUrl(city: "Hatay")
        detailWeatherManagerObject.sendDetailWeather(longitude: 36.25, latitude: 36.5)
+        hourlyDataManagementObject.resolveJSON(longitude: 36.25, latidude: 36.5)
     }
 
 
@@ -38,8 +40,7 @@ extension ViewController : WeatherManagerDelegate {
 
 extension ViewController : DetailWeatherManagementDelegate {
     func detailWeatherUpdate(detailWeather: DetailWeatherModel) {
-        print(detailWeather.stringDate)
-        print(detailWeather.wind_deg)
+        
     }
     
     func detailDidFail(error: Error) {

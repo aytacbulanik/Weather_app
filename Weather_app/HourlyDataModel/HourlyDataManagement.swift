@@ -13,7 +13,7 @@ struct HourlyDataManagement {
     
     func resolveJSON(longitude : CLLocationDegrees , latidude : CLLocationDegrees) {
         let sendHourlyWeather = "\(apiURL)&lat=\(latidude)&lon=\(longitude)"
-        
+        getHourlyJSONData(urlString: sendHourlyWeather)
     }
     
     func getHourlyJSONData(urlString : String) {
@@ -21,27 +21,30 @@ struct HourlyDataManagement {
         let session = URLSession(configuration: .default)
         let task = session.dataTask(with: url) { data, response, error in
             if error != nil {
-                print(error?.localizedDescription)
+                print(error!.localizedDescription)
                 return
             }
             
             if let jsonData = data {
-                
+                let temp = decodeJsonData(jsonData: jsonData)
+                print(temp)
             }
         }
         task.resume()
         }
     }
-    
-    func decodeJsonData(jsonData : Data) -> String {
+    func decodeJsonData(jsonData : Data) -> Double {
         let decoder = JSONDecoder()
         
         do {
             let decodeData = try decoder.decode(HourlyJSONModel.self, from: jsonData)
+            let temp = decodeData.hourly[0].temp
+            return temp
         }catch {
             print(error.localizedDescription)
+            return 0.003
         }
-        return ""
+       
     }
     
 }

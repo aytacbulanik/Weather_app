@@ -12,7 +12,6 @@ struct DetailJSONModel :Codable {
     let lon : Double
     let current : Current
     let minutely : [Minutely]
-    let hourly : [Hourly]
     
 }
 
@@ -40,16 +39,4 @@ struct Minutely : Codable {
     
 }
 
-struct Hourly : Codable {
-    let temp : Double
-    let feels_like : Double
-    let pressure : Int
-    let humidity : Double
-    let uvi : Double
-    let dt : Double
-    let sunrise : Double
-    let sunset : Double
-    let wind_speed : Double
-    let wind_deg : Double
-    let currentWeatherDetail : WeatherDetail
-}
+
