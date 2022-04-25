@@ -20,7 +20,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
        weatherManagerObject.weatherManagerDelegateObject = self
         detailWeatherManagerObject.detailDeegate = self
-       weatherManagerObject.weatherRequestUrl(city: "Hatay")
+      // weatherManagerObject.weatherRequestUrl(city: "Hatay")
        detailWeatherManagerObject.sendDetailWeather(longitude: 36.25, latitude: 36.5)
     }
 
@@ -38,7 +38,8 @@ extension ViewController : WeatherManagerDelegate {
 
 extension ViewController : DetailWeatherManagementDelegate {
     func detailWeatherUpdate(detailWeather: DetailWeatherModel) {
-        print("\(detailWeather) detaylerı geldi")
+        print(detailWeather.stringDate)
+        print(detailWeather.wind_deg)
     }
     
     func detailDidFail(error: Error) {

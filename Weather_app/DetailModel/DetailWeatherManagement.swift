@@ -15,7 +15,7 @@ protocol DetailWeatherManagementDelegate {
 
 struct DetailWeatherManagement {
     var detailDeegate : DetailWeatherManagementDelegate?
-    let apiDetailUrl = "https://api.openweathermap.org/data/2.5/onecall?exclude=daily&appid=39d3bb501d19a7b5f5d9449a0d69b76c&units=metric"
+    let apiDetailUrl = "https://api.openweathermap.org/data/2.5/onecall?exclude=alerts&appid=39d3bb501d19a7b5f5d9449a0d69b76c&units=metric&lang=tr"
     
     func sendDetailWeather(longitude : CLLocationDegrees , latitude : CLLocationDegrees) {
         let urlString = "\(apiDetailUrl)&lon=\(longitude)&lat=\(latitude)"
@@ -49,7 +49,15 @@ struct DetailWeatherManagement {
             let pressure = decodeData.current.pressure
             let humidity = decodeData.current.humidity
             let uvi = decodeData.current.uvi
-            let detailWeather = DetailWeatherModel(temp: temp, feels_like: feels_like, pressure: pressure, humidity: humidity, uvi: uvi)
+            let dt = decodeData.current.dt
+            let sunrise = decodeData.current.sunrise
+            let sunset = decodeData.current.sunset
+            let wind_speed = decodeData.current.wind_speed
+            let wind_deg = decodeData.current.wind_deg
+            let weatherId = decodeData.current.weather[0].id
+            let description = decodeData.current.weather[0].description
+            let main = decodeData.current.weather[0].main
+            let detailWeather = DetailWeatherModel(temp: temp, feels_like: feels_like, pressure: pressure, humidity: humidity, uvi: uvi,dt: dt,sunrise: sunrise,sunset: sunset,wind_speed: wind_speed,wind_deg: wind_deg,currentWeatherDetail:.init(id: weatherId, description: description, main: main))
             return detailWeather
         }catch {
             print(error.localizedDescription)
