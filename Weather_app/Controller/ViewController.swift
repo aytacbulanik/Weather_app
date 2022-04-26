@@ -9,6 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var collectionView: UICollectionView!
     var weatherManagerObject = WeatherManager()
     var detailWeatherManagerObject = DetailWeatherManagement()
     var hourlyDataManagementObject = HourlyDataManagement()
@@ -21,6 +22,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
        weatherManagerObject.weatherManagerDelegateObject = self
         detailWeatherManagerObject.detailDeegate = self
+        collectionView.delegate = self
+        collectionView.dataSource = self
       // weatherManagerObject.weatherRequestUrl(city: "Hatay")
        detailWeatherManagerObject.sendDetailWeather(longitude: 36.25, latitude: 36.5)
         hourlyDataManagementObject.resolveJSON(longitude: 36.25, latidude: 36.5)
@@ -48,5 +51,24 @@ extension ViewController : DetailWeatherManagementDelegate {
     }
     
     
+}
+
+extension ViewController : UICollectionViewDataSource , UICollectionViewDelegate {
+    
+    
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+        cell.accessibilityLabel = "Deneme"
+        return cell
+    }
 }
 
