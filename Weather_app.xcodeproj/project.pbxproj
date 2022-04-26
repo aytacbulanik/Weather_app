@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B41FAFF92818921800296A08 /* HourlyCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41FAFF82818921800296A08 /* HourlyCollectionView.swift */; };
 		B447579528159FB800EEF27B /* HourlyDataManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = B447579428159FB800EEF27B /* HourlyDataManagement.swift */; };
 		B447579728159FDF00EEF27B /* HourlyJSONModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B447579628159FDF00EEF27B /* HourlyJSONModel.swift */; };
 		B44757992815A01200EEF27B /* HourlyWeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44757982815A01200EEF27B /* HourlyWeatherModel.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B41FAFF82818921800296A08 /* HourlyCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyCollectionView.swift; sourceTree = "<group>"; };
 		B447579428159FB800EEF27B /* HourlyDataManagement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyDataManagement.swift; sourceTree = "<group>"; };
 		B447579628159FDF00EEF27B /* HourlyJSONModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyJSONModel.swift; sourceTree = "<group>"; };
 		B44757982815A01200EEF27B /* HourlyWeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyWeatherModel.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				B4C0AE362805979C003DE14F /* ViewController.swift */,
+				B41FAFF82818921800296A08 /* HourlyCollectionView.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 				B447579528159FB800EEF27B /* HourlyDataManagement.swift in Sources */,
 				B4C0AE332805979C003DE14F /* AppDelegate.swift in Sources */,
 				B4C0AE4E2805A1F6003DE14F /* WeatherManager.swift in Sources */,
+				B41FAFF92818921800296A08 /* HourlyCollectionView.swift in Sources */,
 				B447579728159FDF00EEF27B /* HourlyJSONModel.swift in Sources */,
 				B44757992815A01200EEF27B /* HourlyWeatherModel.swift in Sources */,
 				B4C0AE522805AC2C003DE14F /* WeatherModel.swift in Sources */,
