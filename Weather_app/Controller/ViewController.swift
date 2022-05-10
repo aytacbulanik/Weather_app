@@ -28,6 +28,7 @@ class ViewController: UIViewController {
         tasarim.itemSize = CGSize(width: 80, height: yukseklik) //yatayda kaç hücre olduğunu tanımladık. Yükseklik değerini istersek başka bir oranla çarpabiliriz.
         tasarim.minimumInteritemSpacing = 2 //hucreler arası genişliği tanımladık
         tasarim.minimumLineSpacing = 2 // alt alta hucreler arası genişliği tanımladık
+        tasarim.scrollDirection = .horizontal
         collectionView.collectionViewLayout = tasarim
        weatherManagerObject.weatherManagerDelegateObject = self
         detailWeatherManagerObject.detailDeegate = self
@@ -68,15 +69,15 @@ extension ViewController : UICollectionViewDataSource , UICollectionViewDelegate
 
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return 20
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as! HourlyCollectionViewCell
-        cell.layer.borderColor = UIColor.red.cgColor // border rengini tanımladık
+        cell.layer.borderColor = UIColor.gray.cgColor // border rengini tanımladık
         cell.layer.borderWidth = 1 // border kalınlığını tanımladık
         cell.hourLabel.text = "17"
-        cell.tempLabel.text = "21 C derece"
+        cell.tempLabel.text = "21 C"
         cell.weatherImage.image = UIImage(systemName: "pencil")
         return cell
     }
