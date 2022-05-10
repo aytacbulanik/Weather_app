@@ -13,6 +13,8 @@ class ViewController: UIViewController {
     var detailWeatherManagerObject = DetailWeatherManagement()
     var hourlyDataManagementObject = HourlyDataManagement()
     var weatherObject : WeatherModel!
+    
+    @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var cityNameLabel: UILabel!
     @IBOutlet weak var cityTemperatureLabel: UILabel!
     
@@ -21,6 +23,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
        weatherManagerObject.weatherManagerDelegateObject = self
         detailWeatherManagerObject.detailDeegate = self
+        collectionView.delegate = self
+        collectionView.dataSource = self
       // weatherManagerObject.weatherRequestUrl(city: "Hatay")
        detailWeatherManagerObject.sendDetailWeather(longitude: 36.25, latitude: 36.5)
         hourlyDataManagementObject.resolveJSON(longitude: 36.25, latidude: 36.5)
@@ -45,6 +49,14 @@ extension ViewController : DetailWeatherManagementDelegate {
     
     func detailDidFail(error: Error) {
         print(error.localizedDescription)
+    }
+}
+
+//collectionView functions
+
+extension ViewController : UICollectionViewDataSource , UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        <#code#>
     }
     
     
