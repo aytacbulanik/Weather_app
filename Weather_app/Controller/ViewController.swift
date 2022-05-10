@@ -21,6 +21,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var cityNameField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Collection view hucrelerini elle tasarlarsak daha güzel bir goruntu oluştururuz.
+        let tasarim : UICollectionViewFlowLayout = UICollectionViewFlowLayout() //hucre tasarım nesnesini oluşturduk
+        let yukseklik = collectionView.frame.size.height-2 //tüm collectionview için genişliği tanımladık
+        tasarim.sectionInset = UIEdgeInsets(top: 1, left: 0, bottom: 1, right: 0) //her hucrenin kenarlardan uzaklığını belirledik
+        tasarim.itemSize = CGSize(width: 80, height: yukseklik) //yatayda kaç hücre olduğunu tanımladık. Yükseklik değerini istersek başka bir oranla çarpabiliriz.
+        tasarim.minimumInteritemSpacing = 2 //hucreler arası genişliği tanımladık
+        tasarim.minimumLineSpacing = 2 // alt alta hucreler arası genişliği tanımladık
+        collectionView.collectionViewLayout = tasarim
        weatherManagerObject.weatherManagerDelegateObject = self
         detailWeatherManagerObject.detailDeegate = self
         collectionView.delegate = self
@@ -55,8 +63,22 @@ extension ViewController : DetailWeatherManagementDelegate {
 //collectionView functions
 
 extension ViewController : UICollectionViewDataSource , UICollectionViewDelegate {
+    
+    
+
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 5
+    }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        <#code#>
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as! HourlyCollectionViewCell
+        cell.layer.borderColor = UIColor.red.cgColor // border rengini tanımladık
+        cell.layer.borderWidth = 1 // border kalınlığını tanımladık
+        cell.hourLabel.text = "17"
+        cell.tempLabel.text = "21 C derece"
+        cell.weatherImage.image = UIImage(systemName: "pencil")
+        return cell
     }
     
     
