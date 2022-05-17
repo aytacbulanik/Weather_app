@@ -33,16 +33,18 @@ struct HourlyDataManagement {
         task.resume()
         }
     }
-    func decodeJsonData(jsonData : Data) -> Double {
+    func decodeJsonData(jsonData : Data) -> HourlyWeatherModel? {
         let decoder = JSONDecoder()
         
         do {
             let decodeData = try decoder.decode(HourlyJSONModel.self, from: jsonData)
             let temp = decodeData.hourly[0].temp
-            return temp
+            let dt = decodeData.hourly[0].dt
+            let hourlyWeather = HourlyWeatherModel(temp: temp, dt: dt)
+            return hourlyWeather
         }catch {
             print(error.localizedDescription)
-            return 0.003
+            return nil
         }
        
     }
