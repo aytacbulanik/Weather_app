@@ -26,7 +26,7 @@ class ViewController: UIViewController {
         let tasarim : UICollectionViewFlowLayout = UICollectionViewFlowLayout() //hucre tasarım nesnesini oluşturduk
         let yukseklik = collectionView.frame.size.height-2 //tüm collectionview için genişliği tanımladık
         tasarim.sectionInset = UIEdgeInsets(top: 1, left: 0, bottom: 1, right: 0) //her hucrenin kenarlardan uzaklığını belirledik
-        tasarim.itemSize = CGSize(width: 80, height: yukseklik) //yatayda kaç hücre olduğunu tanımladık. Yükseklik değerini istersek başka bir oranla çarpabiliriz.
+        tasarim.itemSize = CGSize(width: 60, height: yukseklik) //yatayda kaç hücre olduğunu tanımladık. Yükseklik değerini istersek başka bir oranla çarpabiliriz.
         tasarim.minimumInteritemSpacing = 2 //hucreler arası genişliği tanımladık
         tasarim.minimumLineSpacing = 2 // alt alta hucreler arası genişliği tanımladık
         tasarim.scrollDirection = .horizontal

@@ -81,10 +81,10 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="kNL-fZ-1R2">
-                                <rect key="frame" x="0.0" y="182" width="414" height="150"/>
+                                <rect key="frame" x="0.0" y="182" width="414" height="100"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="3wQ-hb-XHR"/>
+                                    <constraint firstAttribute="height" constant="100" id="3wQ-hb-XHR"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="g3A-iY-rmK">
                                     <size key="itemSize" width="128" height="152"/>
@@ -94,7 +94,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionCell" id="qQx-3v-397" customClass="HourlyCollectionViewCell" customModule="Weather_app" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="80" height="150"/>
+                                        <rect key="frame" x="0.0" y="-25" width="80" height="150"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="23X-kG-Ovh">
                                             <rect key="frame" x="0.0" y="0.0" width="80" height="150"/>
@@ -105,15 +105,15 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="35" id="KCh-Nr-ict"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Kzl-9E-jk5">
-                                                    <rect key="frame" x="10" y="45" width="60" height="60"/>
+                                                    <rect key="frame" x="20" y="55" width="40" height="40"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="60" id="S0M-aN-chm"/>
-                                                        <constraint firstAttribute="width" constant="60" id="erM-Os-YT4"/>
+                                                        <constraint firstAttribute="height" constant="40" id="S0M-aN-chm"/>
+                                                        <constraint firstAttribute="width" constant="40" id="erM-Os-YT4"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23 C" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NIK-4t-BZa">
@@ -121,7 +121,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="35" id="dh0-xs-xzv"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
