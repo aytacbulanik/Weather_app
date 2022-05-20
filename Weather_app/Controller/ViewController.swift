@@ -32,6 +32,7 @@ class ViewController: UIViewController {
         collectionView.collectionViewLayout = tasarim
        weatherManagerObject.weatherManagerDelegateObject = self
         detailWeatherManagerObject.detailDeegate = self
+        hourlyDataManagementObject.hourlyManagerDelegateObject = self
         collectionView.delegate = self
         collectionView.dataSource = self
       // weatherManagerObject.weatherRequestUrl(city: "Hatay")
@@ -59,6 +60,14 @@ extension ViewController : DetailWeatherManagementDelegate {
     func detailDidFail(error: Error) {
         print(error.localizedDescription)
     }
+}
+
+extension ViewController : HourlyManagerDelegate {
+    func getHourlyData(hourlyData: HourlyWeatherModel) {
+        print(hourlyData)
+    }
+    
+    
 }
 
 //collectionView functions

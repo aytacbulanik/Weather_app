@@ -8,7 +8,12 @@
 import Foundation
 import CoreLocation
 
+protocol HourlyManagerDelegate {
+    func getHourlyData(hourlyData : HourlyWeatherModel)
+}
+
 struct HourlyDataManagement {
+    var hourlyManagerDelegateObject : HourlyManagerDelegate?
     let apiURL = "https://api.openweathermap.org/data/2.5/onecall?exclude=alerts&appid=39d3bb501d19a7b5f5d9449a0d69b76c&units=metric&lang=tr"
     
     func resolveJSON(longitude : CLLocationDegrees , latidude : CLLocationDegrees) {
@@ -24,10 +29,10 @@ struct HourlyDataManagement {
                 print(error!.localizedDescription)
                 return
             }
-            
             if let jsonData = data {
-                let temp = decodeJsonData(jsonData: jsonData)
-                print(temp)
+                if let hourlyWeather = self.decodeJsonData(jsonData: jsonData) {
+                    self.hourlyManagerDelegateObject?.getHourlyData(hourlyData: hourlyWeather)
+                }
             }
         }
         task.resume()
