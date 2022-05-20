@@ -9,7 +9,7 @@ import Foundation
 import CoreLocation
 
 protocol HourlyManagerDelegate {
-    func getHourlyData(hourlyData : HourlyWeatherModel)
+    func getHourlyData(hourlyData : [HourlyWeatherModel])
 }
 
 struct HourlyDataManagement {
@@ -32,21 +32,27 @@ struct HourlyDataManagement {
             if let jsonData = data {
                 if let hourlyWeather = self.decodeJsonData(jsonData: jsonData) {
                     self.hourlyManagerDelegateObject?.getHourlyData(hourlyData: hourlyWeather)
+                    print(hourlyWeather)
                 }
             }
         }
         task.resume()
         }
     }
-    func decodeJsonData(jsonData : Data) -> HourlyWeatherModel? {
+    func decodeJsonData(jsonData : Data) -> [HourlyWeatherModel]? {
         let decoder = JSONDecoder()
         
         do {
             let decodeData = try decoder.decode(HourlyJSONModel.self, from: jsonData)
-            let temp = decodeData.hourly[0].temp
-            let dt = decodeData.hourly[0].dt
-            let hourlyWeather = HourlyWeatherModel(temp: temp, dt: dt)
-            return hourlyWeather
+            var hourlyData : [HourlyWeatherModel] = [HourlyWeatherModel]()
+            for i in 1...24 {
+                let temp = decodeData.hourly[i].temp
+                let dt = decodeData.hourly[i].dt
+                let hourlyWeather = HourlyWeatherModel(temp: temp, dt: dt)
+                hourlyData.append(hourlyWeather)
+            }
+            
+            return hourlyData
         }catch {
             print(error.localizedDescription)
             return nil

@@ -63,7 +63,7 @@ extension ViewController : DetailWeatherManagementDelegate {
 }
 
 extension ViewController : HourlyManagerDelegate {
-    func getHourlyData(hourlyData: HourlyWeatherModel) {
+    func getHourlyData(hourlyData: [HourlyWeatherModel]) {
         print(hourlyData)
     }
     

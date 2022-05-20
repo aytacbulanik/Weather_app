@@ -20,7 +20,6 @@ struct HourlyWeatherModel {
    // let wind_deg : Double
    // let currentWeatherDetail : DetailLittleWeatherModel
     
-    var dataArray : [HourlyWeatherModel] = [HourlyWeatherModel]()
     
     var stringDate : String {
         let date = Date(timeIntervalSince1970: dt)
