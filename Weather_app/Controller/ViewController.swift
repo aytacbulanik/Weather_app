@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var cityNameLabel: UILabel!
     @IBOutlet weak var cityTemperatureLabel: UILabel!
+    var HourlyDataArray : [HourlyWeatherModel] = [HourlyWeatherModel]()
     
     @IBOutlet weak var cityNameField: UITextField!
     override func viewDidLoad() {
@@ -64,7 +65,11 @@ extension ViewController : DetailWeatherManagementDelegate {
 
 extension ViewController : HourlyManagerDelegate {
     func getHourlyData(hourlyData: [HourlyWeatherModel]) {
-        print(hourlyData)
+        DispatchQueue.main.async {
+            self.HourlyDataArray.removeAll(keepingCapacity: true)
+            self.HourlyDataArray = hourlyData
+            self.collectionView.reloadData()
+        }
     }
     
     
@@ -78,15 +83,15 @@ extension ViewController : UICollectionViewDataSource , UICollectionViewDelegate
 
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        return HourlyDataArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as! HourlyCollectionViewCell
         cell.layer.borderColor = UIColor.gray.cgColor // border rengini tanımladık
         cell.layer.borderWidth = 1 // border kalınlığını tanımladık
-        cell.hourLabel.text = "17"
-        cell.tempLabel.text = "21 C"
+        cell.hourLabel.text = "\(HourlyDataArray[indexPath.row].dt) "
+        cell.tempLabel.text = "\(HourlyDataArray[indexPath.row].temp) C"
         cell.weatherImage.image = UIImage(systemName: "pencil")
         return cell
     }

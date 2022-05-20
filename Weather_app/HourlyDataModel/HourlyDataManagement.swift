@@ -45,7 +45,7 @@ struct HourlyDataManagement {
         do {
             let decodeData = try decoder.decode(HourlyJSONModel.self, from: jsonData)
             var hourlyData : [HourlyWeatherModel] = [HourlyWeatherModel]()
-            for i in 1...24 {
+            for i in 1...47 {
                 let temp = decodeData.hourly[i].temp
                 let dt = decodeData.hourly[i].dt
                 let hourlyWeather = HourlyWeatherModel(temp: temp, dt: dt)
