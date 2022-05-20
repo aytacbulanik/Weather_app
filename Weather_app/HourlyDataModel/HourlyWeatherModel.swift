@@ -22,12 +22,12 @@ struct HourlyWeatherModel {
     
     
     var stringDate : String {
+     
         let date = Date(timeIntervalSince1970: dt)
         let dateFormatter = DateFormatter()
-        dateFormatter.timeStyle = DateFormatter.Style.short //Set time style
-        dateFormatter.dateStyle = DateFormatter.Style.long //Set date style
+        dateFormatter.dateFormat = "HH"
+        let day = dateFormatter.string(from: date)
         dateFormatter.timeZone = .current
-        let localDate = dateFormatter.string(from: date)
-        return localDate
+        return day
     }
 }

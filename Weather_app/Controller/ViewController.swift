@@ -90,7 +90,7 @@ extension ViewController : UICollectionViewDataSource , UICollectionViewDelegate
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as! HourlyCollectionViewCell
         cell.layer.borderColor = UIColor.gray.cgColor // border rengini tanımladık
         cell.layer.borderWidth = 1 // border kalınlığını tanımladık
-        cell.hourLabel.text = "\(HourlyDataArray[indexPath.row].dt) "
+        cell.hourLabel.text = "\(HourlyDataArray[indexPath.row].stringDate) "
         cell.tempLabel.text = "\(HourlyDataArray[indexPath.row].temp) C"
         cell.weatherImage.image = UIImage(systemName: "pencil")
         return cell
