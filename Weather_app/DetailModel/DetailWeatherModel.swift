@@ -35,6 +35,7 @@ struct DetailLittleWeatherModel {
     let id : Int
     let description : String
     let main : String
+    let icon : String
 }
 
 
