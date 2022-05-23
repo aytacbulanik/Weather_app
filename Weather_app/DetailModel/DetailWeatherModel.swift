@@ -36,6 +36,23 @@ struct DetailLittleWeatherModel {
     let description : String
     let main : String
     let icon : String
+    
+    var imageString : String {
+        var imageName = ""
+        switch icon {
+        case "01d" : imageName = "Clodly"
+        case "02d" : imageName = "Clodly"
+        case "03d" : imageName = "Clodly"
+        case "04d" : imageName = "Clodly"
+        case "09d" : imageName = "Clodly"
+        case "10d" : imageName = "Clodly"
+        case "11d" : imageName = "Clodly"
+        case "13d" : imageName = "Clodly"
+        case "50d" : imageName = "Clodly"
+        default : imageName = ""
+        }
+        return imageName
+    }
 }
 
 

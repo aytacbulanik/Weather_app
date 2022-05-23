@@ -37,7 +37,7 @@ class ViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
       // weatherManagerObject.weatherRequestUrl(city: "Hatay")
-       detailWeatherManagerObject.sendDetailWeather(longitude: 36.25, latitude: 36.5)
+        detailWeatherManagerObject.sendDetailWeather(longitude: 36.25, latitude: 36.5)
         hourlyDataManagementObject.resolveJSON(longitude: 36.25, latidude: 36.5)
     }
 
@@ -55,7 +55,7 @@ extension ViewController : WeatherManagerDelegate {
 
 extension ViewController : DetailWeatherManagementDelegate {
     func detailWeatherUpdate(detailWeather: DetailWeatherModel) {
-        
+        print(detailWeather)
     }
     
     func detailDidFail(error: Error) {

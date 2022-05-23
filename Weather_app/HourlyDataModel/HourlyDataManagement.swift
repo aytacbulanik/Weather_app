@@ -32,7 +32,6 @@ struct HourlyDataManagement {
             if let jsonData = data {
                 if let hourlyWeather = self.decodeJsonData(jsonData: jsonData) {
                     self.hourlyManagerDelegateObject?.getHourlyData(hourlyData: hourlyWeather)
-                    print(hourlyWeather)
                 }
             }
         }
@@ -48,7 +47,11 @@ struct HourlyDataManagement {
             for i in 1...47 {
                 let temp = decodeData.hourly[i].temp
                 let dt = decodeData.hourly[i].dt
-                let hourlyWeather = HourlyWeatherModel(temp: temp, dt: dt)
+                let id = decodeData.hourly[i].weather[0].id
+                let main = decodeData.hourly[i].weather[0].main
+                let description = decodeData.hourly[i].weather[0].description
+                let icon = decodeData.hourly[i].weather[0].icon
+                let hourlyWeather = HourlyWeatherModel(temp: temp, dt: dt, currentWeatherDetail: DetailLittleWeatherModel(id: id, description: description, main: main, icon: icon))
                 hourlyData.append(hourlyWeather)
             }
             
