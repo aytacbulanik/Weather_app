@@ -39,16 +39,22 @@ struct DetailLittleWeatherModel {
     
     var imageString : String {
         var imageName = ""
-        switch icon {
-        case "01d" : imageName = "Clodly"
-        case "02d" : imageName = "Clodly"
-        case "03d" : imageName = "Clodly"
-        case "04d" : imageName = "Clodly"
-        case "09d" : imageName = "Clodly"
-        case "10d" : imageName = "Clodly"
-        case "11d" : imageName = "Clodly"
-        case "13d" : imageName = "Clodly"
-        case "50d" : imageName = "Clodly"
+        switch id {
+        case 200...232 : imageName = "tornado"
+        case 300...311 : imageName = "cloud.drizzle.fill"
+        case 312...321 : imageName = "cloud.bolt.rain"
+        case 500...504 : imageName = "cloud.heavyrain"
+        case 511 : imageName = "cloud.fog"
+        case 520...531 : imageName = "cloud.sleet"
+        case 600...613 : imageName = "cloud.hail.fill"
+        case 614...622 : imageName = "cloud.snow"
+        case 701...751 : imageName = "smoke"
+        case 761...781 : imageName = "wind"
+        case 800 : imageName = "sun.max.fill"
+        case 801 : imageName = "sun.max"
+        case 802 : imageName = "sun.min"
+        case 803 : imageName = "cloud"
+        case 804 : imageName = "cloud.fill"
         default : imageName = ""
         }
         return imageName
