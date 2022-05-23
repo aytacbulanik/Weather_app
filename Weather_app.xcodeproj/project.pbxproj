@@ -11,6 +11,8 @@
 		B447579728159FDF00EEF27B /* HourlyJSONModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B447579628159FDF00EEF27B /* HourlyJSONModel.swift */; };
 		B44757992815A01200EEF27B /* HourlyWeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44757982815A01200EEF27B /* HourlyWeatherModel.swift */; };
 		B482EE01282A8B7B003DDBEA /* HourlyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B482EE00282A8B7B003DDBEA /* HourlyCollectionViewCell.swift */; };
+		B483B4FB283B655E005C3296 /* DailyDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B483B4FA283B655E005C3296 /* DailyDataModel.swift */; };
+		B483B4FD283B6605005C3296 /* DailyJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B483B4FC283B6605005C3296 /* DailyJsonModel.swift */; };
 		B4C0AE332805979C003DE14F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C0AE322805979C003DE14F /* AppDelegate.swift */; };
 		B4C0AE352805979C003DE14F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C0AE342805979C003DE14F /* SceneDelegate.swift */; };
 		B4C0AE372805979C003DE14F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C0AE362805979C003DE14F /* ViewController.swift */; };
@@ -30,6 +32,8 @@
 		B447579628159FDF00EEF27B /* HourlyJSONModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyJSONModel.swift; sourceTree = "<group>"; };
 		B44757982815A01200EEF27B /* HourlyWeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyWeatherModel.swift; sourceTree = "<group>"; };
 		B482EE00282A8B7B003DDBEA /* HourlyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyCollectionViewCell.swift; sourceTree = "<group>"; };
+		B483B4FA283B655E005C3296 /* DailyDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyDataModel.swift; sourceTree = "<group>"; };
+		B483B4FC283B6605005C3296 /* DailyJsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyJsonModel.swift; sourceTree = "<group>"; };
 		B4C0AE2F2805979C003DE14F /* Weather_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weather_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4C0AE322805979C003DE14F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B4C0AE342805979C003DE14F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +71,15 @@
 			path = HourlyDataModel;
 			sourceTree = "<group>";
 		};
+		B483B4F9283B652E005C3296 /* DailyDataModel */ = {
+			isa = PBXGroup;
+			children = (
+				B483B4FA283B655E005C3296 /* DailyDataModel.swift */,
+				B483B4FC283B6605005C3296 /* DailyJsonModel.swift */,
+			);
+			path = DailyDataModel;
+			sourceTree = "<group>";
+		};
 		B4C0AE262805979C003DE14F = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +99,7 @@
 		B4C0AE312805979C003DE14F /* Weather_app */ = {
 			isa = PBXGroup;
 			children = (
+				B483B4F9283B652E005C3296 /* DailyDataModel */,
 				B4C0AE322805979C003DE14F /* AppDelegate.swift */,
 				B4C0AE342805979C003DE14F /* SceneDelegate.swift */,
 				B447579328159F8500EEF27B /* HourlyDataModel */,
@@ -217,9 +231,11 @@
 				B4C0AE4E2805A1F6003DE14F /* WeatherManager.swift in Sources */,
 				B447579728159FDF00EEF27B /* HourlyJSONModel.swift in Sources */,
 				B44757992815A01200EEF27B /* HourlyWeatherModel.swift in Sources */,
+				B483B4FB283B655E005C3296 /* DailyDataModel.swift in Sources */,
 				B4C0AE522805AC2C003DE14F /* WeatherModel.swift in Sources */,
 				B4DF1D29280EF25F00B4E5EA /* DetailJSONModel.swift in Sources */,
 				B4EAB904280FFAA80044A2BF /* DetailWeatherManagement.swift in Sources */,
+				B483B4FD283B6605005C3296 /* DailyJsonModel.swift in Sources */,
 				B4C0AE352805979C003DE14F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
