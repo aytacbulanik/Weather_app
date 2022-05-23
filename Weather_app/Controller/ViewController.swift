@@ -38,7 +38,7 @@ class ViewController: UIViewController {
         collectionView.dataSource = self
       // weatherManagerObject.weatherRequestUrl(city: "Hatay")
         detailWeatherManagerObject.sendDetailWeather(longitude: 36.25, latitude: 36.5)
-        hourlyDataManagementObject.resolveJSON(longitude: 36.25, latidude: 36.5)
+        hourlyDataManagementObject.resolveJSON(longitude: 89, latidude: 2)
     }
 
 
@@ -55,7 +55,7 @@ extension ViewController : WeatherManagerDelegate {
 
 extension ViewController : DetailWeatherManagementDelegate {
     func detailWeatherUpdate(detailWeather: DetailWeatherModel) {
-        print(detailWeather)
+      
     }
     
     func detailDidFail(error: Error) {
@@ -79,20 +79,15 @@ extension ViewController : HourlyManagerDelegate {
 
 extension ViewController : UICollectionViewDataSource , UICollectionViewDelegate {
     
-    
-
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return HourlyDataArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as! HourlyCollectionViewCell
-        cell.layer.borderColor = UIColor.gray.cgColor // border rengini tanımladık
-        cell.layer.borderWidth = 1 // border kalınlığını tanımladık
         cell.hourLabel.text = "\(HourlyDataArray[indexPath.row].stringDate) "
-        cell.tempLabel.text = "\(HourlyDataArray[indexPath.row].temp) C"
-        cell.weatherImage.image = UIImage(systemName: "pencil")
+        cell.tempLabel.text = "\(HourlyDataArray[indexPath.row].intToTemp) °"
+        cell.weatherImage.image = UIImage(systemName: HourlyDataArray[indexPath.row].currentWeatherDetail.imageString)
         return cell
     }
     
